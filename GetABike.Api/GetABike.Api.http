@@ -1,0 +1,6 @@
+@GetABike.Api_HostAddress = http://localhost:5239
+
+GET {{GetABike.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

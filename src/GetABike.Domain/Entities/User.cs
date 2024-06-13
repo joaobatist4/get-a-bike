@@ -20,9 +20,6 @@ public class User : Entity
 
     public User CreateAdminUser(string name, string userName, string password, User author)
     {
-        if (author.Type is not UserType.Admin)
-            throw new DomainException("Only admin users can create other admin users");
-        
         Name = name;
         UserName = userName;
         Password = password;
@@ -36,9 +33,6 @@ public class User : Entity
     public User CreateDeliveryUser(string name, string userName, string password, string cnpj, string cnhNumber, string cnhUrl, CNHType cnhType,
         DateTime birthDate, User author)
     {
-        if (author.Type is not UserType.Admin)
-            throw new DomainException("Only admin users can create user");
-        
         Name = name;
         UserName = userName;
         Password = password;

@@ -1,0 +1,6 @@
+﻿services:
+  getabike.api:
+    image: getabike.api
+    build:
+      context: .
+      dockerfile: GetABike.Api/Dockerfile

@@ -5,14 +5,14 @@ namespace GetABike.Domain.Entities;
 
 public class Bike : Entity
 {
-    public string Year { get; init; }
+    public int Year { get; init; }
     public string Model { get; init; }
     public string LicensePlate { get; private set; }
     public DateTime? DeletionDate { get; private set; }
     public User? Author { get; set; }
     public int? AuthorId { get; set; }
     
-    public Bike(string year, string model, string licensePlate, int authorId)
+    public Bike(int year, string model, string licensePlate, int authorId)
     {
         CreationDate = DateTime.Now;
         Year = year;
