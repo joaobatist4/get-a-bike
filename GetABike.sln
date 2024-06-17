@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetABike.Application", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetABike.Infra", "src\GetABike.Infra\GetABike.Infra.csproj", "{117F37FA-77F2-4E29-BDED-3536F430F7CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetABike.Api", "GetABike.Api\GetABike.Api.csproj", "{85970F00-AFBD-48D6-891C-1383F0F3723F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetABike.Api", "src\GetABike.Api\GetABike.Api.csproj", "{85970F00-AFBD-48D6-891C-1383F0F3723F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D6566F3-6EFA-4967-8583-7B8741BA46B6}"
 	ProjectSection(SolutionItems) = preProject
