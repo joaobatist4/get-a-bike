@@ -1,4 +1,4 @@
-﻿namespace GetABike.Domain.Enums;
+﻿namespace GetABike.Common.Enums;
 
 public enum UserType
 {

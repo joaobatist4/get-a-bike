@@ -1,5 +1,4 @@
-﻿using GetABike.Domain.Enums;
-using GetABike.Domain.Exceptions;
+﻿using GetABike.Common.Enums;
 
 namespace GetABike.Domain.Entities;
 
@@ -14,9 +13,9 @@ public class User : Entity
     public UserType Type { get; private set; }
     public string? Cnpj { get; private set; }
     public DateTime? BirthDate { get; private set; }
-    public string? CnhNumber { get; private set; }
-    public CNHType? CnhType { get; private set; }
-    public string? CnhUrl { get; private set; }
+    public string? DriversLicenseNumber { get; private set; }
+    public DriversLicenseType? DriversLicenseType { get; private set; }
+    public string? DriversLicenseUrl { get; private set; }
 
     public User CreateAdminUser(string name, string userName, string password, User author)
     {
@@ -30,19 +29,17 @@ public class User : Entity
         return this;
     }
 
-    public User CreateDeliveryUser(string name, string userName, string password, string cnpj, string cnhNumber, string cnhUrl, CNHType cnhType,
-        DateTime birthDate, User author)
+    public User CreateDeliveryUser(string name, string cnpj, string cnhNumber, string cnhUrl, DriversLicenseType driversLicenseType,
+        DateTime birthDate)
     {
         Name = name;
-        UserName = userName;
-        Password = password;
-        Author = author;
+        //Author = author;
         Type = UserType.Delivery;
 
         Cnpj = cnpj;
-        CnhNumber = cnhNumber;
-        CnhUrl = cnhUrl;
-        CnhType = cnhType;
+        DriversLicenseNumber = cnhNumber;
+        DriversLicenseUrl = cnhUrl;
+        DriversLicenseType = driversLicenseType;
         BirthDate = birthDate;
 
         CreationDate = DateTime.Now;
@@ -50,6 +47,6 @@ public class User : Entity
         return this;
     }
 
-    public void UpdateCnh(string cnhUrl)
-        => CnhUrl = cnhUrl;
+    public void UpdateDriverLicenseImagem(string cnhUrl)
+        => DriversLicenseUrl = cnhUrl;
 }

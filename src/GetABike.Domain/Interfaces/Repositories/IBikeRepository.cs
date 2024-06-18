@@ -6,4 +6,6 @@ public interface IBikeRepository
 {
     Task AddAsync(Bike bike);
     Task<bool> AnyByLicensePlateAsync(string licensePlate);
+    Task<Bike?> GetByIdAsync(int id);
+    Task UpdateAsync(Bike bike);
 }

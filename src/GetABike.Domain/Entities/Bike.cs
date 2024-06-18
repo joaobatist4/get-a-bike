@@ -1,5 +1,4 @@
-﻿using GetABike.Domain.Enums;
-using GetABike.Domain.Exceptions;
+﻿using GetABike.Domain.Exceptions;
 
 namespace GetABike.Domain.Entities;
 
@@ -11,6 +10,8 @@ public class Bike : Entity
     public DateTime? DeletionDate { get; private set; }
     public User? Author { get; set; }
     public int? AuthorId { get; set; }
+    private List<Lease> _leases = [];
+    public IReadOnlyCollection<Lease> Leases => _leases.AsReadOnly();
     
     public Bike(int year, string model, string licensePlate, int authorId)
     {
@@ -25,5 +26,10 @@ public class Bike : Entity
         => LicensePlate = licensePlate;
 
     public void Delete()
-        => DeletionDate = DateTime.Now;
+    {
+        if (_leases.Count != 0)
+            throw new DomainException("Cannot delete bike because there are at least one lease");
+
+        DeletionDate = DateTime.Now;
+    }
 }

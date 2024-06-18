@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentResults" Version="3.15.2" />
-      <PackageReference Include="MediatR" Version="12.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\GetABike.Domain\GetABike.Domain.csproj" />
+      <ProjectReference Include="..\GetABike.Infra\GetABike.Infra.csproj" />
     </ItemGroup>
 
 </Project>
