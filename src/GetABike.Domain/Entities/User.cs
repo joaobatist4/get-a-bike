@@ -3,19 +3,21 @@
 namespace GetABike.Domain.Entities;
 
 public class User : Entity
-{ 
+{
     public string Name { get; private set; } = null!;
-    public string UserName { get; private set; }= null!;
-    public string Password { get; private set; }= null!;
+    public string UserName { get; private set; } = null!;
+    public string Password { get; private set; } = null!;
     public User? Author { get; private set; }
     public int? AuthorId { get; private set; }
-    
+
     public UserType Type { get; private set; }
     public string? Cnpj { get; private set; }
     public DateTime? BirthDate { get; private set; }
     public string? DriversLicenseNumber { get; private set; }
     public DriversLicenseType? DriversLicenseType { get; private set; }
     public string? DriversLicenseUrl { get; private set; }
+    private List<Lease> _leases = [];
+    public IReadOnlyCollection<Lease> Leases => _leases.AsReadOnly();
 
     public User CreateAdminUser(string name, string userName, string password, User author)
     {
@@ -25,12 +27,12 @@ public class User : Entity
         Author = author;
         CreationDate = DateTime.Now;
         Type = UserType.Admin;
-        
+
         return this;
     }
 
-    public User CreateDeliveryUser(string name, string cnpj, string cnhNumber, string cnhUrl, DriversLicenseType driversLicenseType,
-        DateTime birthDate)
+    public User CreateDeliveryUser(string name, string cnpj, string cnhNumber, string cnhUrl,
+        DriversLicenseType driversLicenseType, DateTime birthDate)
     {
         Name = name;
         //Author = author;
@@ -43,7 +45,7 @@ public class User : Entity
         BirthDate = birthDate;
 
         CreationDate = DateTime.Now;
-        
+
         return this;
     }
 
